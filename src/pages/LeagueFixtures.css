@@ -1,0 +1,120 @@
+.league-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+}
+
+.league-page__header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.league-page__header h1 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.league-page__subtitle {
+    color: var(--color-chalk-dim);
+    font-size: 0.95rem;
+}
+
+.league-page__actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+/* Round Tabs */
+.round-tabs {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    margin-bottom: 24px;
+    scrollbar-width: none;
+}
+
+.round-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.round-tab {
+    background: var(--color-surface);
+    border: 1px solid rgba(240, 240, 240, 0.06);
+    border-radius: var(--radius-sm);
+    padding: 8px 16px;
+    color: var(--color-chalk-dim);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.round-tab:hover {
+    color: var(--color-chalk);
+    border-color: rgba(13, 107, 59, 0.3);
+}
+
+.round-tab--active {
+    background: var(--color-pitch);
+    border-color: var(--color-pitch);
+    color: white;
+}
+
+/* Fixtures */
+.league-fixtures {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.round-card {
+    padding: 20px;
+}
+
+.round-card__title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    font-size: 1.1rem;
+}
+
+.round-card__badge {
+    background: linear-gradient(135deg, var(--color-pitch), var(--color-pitch-light));
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.round-card__matches {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .league-page {
+        padding: 24px 12px 40px;
+    }
+
+    .league-page__header h1 {
+        font-size: 1.6rem;
+    }
+
+    .round-card {
+        padding: 14px;
+    }
+}
