@@ -7,7 +7,7 @@ import { drawGroups } from '../utils/groupDraw';
 import { generateKnockoutBracket } from '../utils/knockout';
 import './CupTournament.css';
 
-export default function CupTournament({ config }) {
+export default function CupTournament({ config, onStart }) {
     const navigate = useNavigate();
     const [drawKey, setDrawKey] = useState(0);
     const [activeTab, setActiveTab] = useState('groups'); // 'groups' | 'knockout'
@@ -68,6 +68,30 @@ export default function CupTournament({ config }) {
         navigate('/');
     };
 
+    const handleStart = () => {
+        const tournamentData = {
+            id: Date.now(),
+            name: config.competitionName || `${config.teams.length} Teams Cup`,
+            type: 'cup',
+            groups: groups.map(g => ({
+                ...g,
+                fixtures: g.fixtures.map(f => ({
+                    ...f,
+                    matches: f.matches.map(m => ({ ...m, status: 'inprogress' }))
+                }))
+            })),
+            bracket: {
+                ...bracket,
+                rounds: bracket.rounds.map(r => ({
+                    ...r,
+                    matches: r.matches.map(m => ({ ...m, status: 'inprogress' }))
+                }))
+            }
+        };
+        onStart(tournamentData);
+        navigate('/matches');
+    };
+
     const toggleGroup = (idx) => {
         setExpandedGroup(expandedGroup === idx ? null : idx);
     };
@@ -82,10 +106,14 @@ export default function CupTournament({ config }) {
             </div>
 
             <div className="cup-page__actions animate-fade-in">
+                <Button variant="primary" onClick={handleStart}>
+                    🚀 Start Tournament
+                </Button>
+                <div className="action-divider" />
                 <Button variant="secondary" onClick={handleReDraw}>
                     🔄 Re-Draw
                 </Button>
-                <Button variant="ghost" onClick={handleReset}>
+                <Button variant="ghost" onClick={() => navigate('/create')}>
                     🏠 Home
                 </Button>
             </div>

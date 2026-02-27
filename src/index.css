@@ -250,6 +250,13 @@ h3 {
   animation: scaleIn var(--transition-med) ease forwards;
 }
 
+.action-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--color-surface-muted);
+  margin: 0 8px;
+}
+
 /* Stagger children animations */
 .stagger-children>* {
   opacity: 0;

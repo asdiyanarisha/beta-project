@@ -6,7 +6,9 @@ import TeamInput from '../components/TeamInput';
 import { suggestGroupCount } from '../utils/groupDraw';
 import './SetupPage.css';
 
-export default function SetupPage({ onGenerate }) {
+export default function SetupPage({ onGenerate, activeTournament }) {
+    const [competitionName, setCompetitionName] = useState('');
+    const [sportType, setSportType] = useState('football'); // 'football' | 'basketball' | 'volleyball' | 'other'
     const [mode, setMode] = useState('league'); // 'league' | 'cup'
     const [teamCount, setTeamCount] = useState(4);
     const [teamNames, setTeamNames] = useState(
@@ -69,6 +71,8 @@ export default function SetupPage({ onGenerate }) {
 
         setError('');
         onGenerate({
+            competitionName: competitionName.trim() || `${names.length} Teams ${mode === 'league' ? 'League' : 'Cup'}`,
+            sportType,
             mode,
             teams: names,
             doubleRound,
@@ -86,11 +90,44 @@ export default function SetupPage({ onGenerate }) {
         <div className="setup-page">
             <div className="setup-page__header animate-fade-in-up">
                 <div className="setup-page__logo">📊</div>
-                <h1>Match Drawing</h1>
+                <h1>Create Match Drawing</h1>
                 <p className="setup-page__subtitle">Clean & modern competition fixture generator</p>
             </div>
 
             <Card className="setup-page__card" variant="highlight">
+                {/* Competition Name */}
+                <div className="setup-section">
+                    <label className="setup-label">Competition Name</label>
+                    <input
+                        type="text"
+                        className="setup-input"
+                        placeholder="e.g. Champions League 2026"
+                        value={competitionName}
+                        onChange={(e) => setCompetitionName(e.target.value)}
+                    />
+                </div>
+
+                {/* Sport Type */}
+                <div className="setup-section">
+                    <label className="setup-label">Sport Type</label>
+                    <div className="toggle-row">
+                        {[
+                            { id: 'football', label: '⚽ Football' },
+                            { id: 'basketball', label: '🏀 Basketball' },
+                            { id: 'volleyball', label: '🏐 Volleyball' },
+                            { id: 'other', label: '🏟️ Other' }
+                        ].map((s) => (
+                            <button
+                                key={s.id}
+                                className={`toggle-option ${sportType === s.id ? 'toggle-option--active' : ''}`}
+                                onClick={() => setSportType(s.id)}
+                            >
+                                {s.label}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
                 {/* Mode Selection */}
                 <div className="setup-section">
                     <label className="setup-label">Tournament Mode</label>
@@ -230,6 +267,11 @@ export default function SetupPage({ onGenerate }) {
                     <Button variant="primary" size="lg" onClick={handleGenerate}>
                         🚀 Generate Draw
                     </Button>
+                    {activeTournament && (
+                        <Button variant="secondary" size="lg" onClick={() => navigate('/matches')}>
+                            📋 View Active Tournament
+                        </Button>
+                    )}
                 </div>
             </Card>
         </div>

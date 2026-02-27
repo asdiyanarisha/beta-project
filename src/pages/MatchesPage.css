@@ -1,0 +1,132 @@
+.matches-page {
+    padding: 40px 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 80vh;
+}
+
+.matches-page--empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty-card {
+    text-align: center;
+    padding: 60px 40px;
+    max-width: 400px;
+}
+
+.empty-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.empty-card p {
+    color: var(--text-secondary);
+    margin: 16px 0 32px;
+}
+
+.matches-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    gap: 20px;
+}
+
+.header-main {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.type-badge {
+    background: var(--color-primary-light);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.matches-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.management-card {
+    margin-bottom: 24px;
+}
+
+.section-title {
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-surface-muted);
+    font-size: 1.1rem;
+}
+
+.round-section {
+    margin-bottom: 24px;
+}
+
+.round-section:last-child {
+    margin-bottom: 0;
+}
+
+.round-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+}
+
+.match-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.back-btn {
+    margin-bottom: 24px;
+}
+
+.tournament-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.phase-title {
+    margin: 40px 0 20px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.phase-title--knockout {
+    margin-top: 60px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .matches-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+}

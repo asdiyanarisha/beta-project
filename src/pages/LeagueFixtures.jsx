@@ -6,7 +6,7 @@ import MatchCard from '../components/MatchCard';
 import { generateRoundRobin, shuffle } from '../utils/roundRobin';
 import './LeagueFixtures.css';
 
-export default function LeagueFixtures({ config }) {
+export default function LeagueFixtures({ config, onStart }) {
     const navigate = useNavigate();
     const [activeRound, setActiveRound] = useState(0);
     const [drawKey, setDrawKey] = useState(0); // force re-draw
@@ -32,6 +32,20 @@ export default function LeagueFixtures({ config }) {
         navigate('/');
     };
 
+    const handleStart = () => {
+        const tournamentData = {
+            id: Date.now(),
+            name: config.competitionName || `${config.teams.length} Teams League`,
+            type: 'league',
+            rounds: fixtures.map(round => ({
+                ...round,
+                matches: round.matches.map(m => ({ ...m, status: 'inprogress' }))
+            }))
+        };
+        onStart(tournamentData);
+        navigate('/matches');
+    };
+
     const totalMatches = fixtures.reduce((sum, r) => sum + r.matches.length, 0);
 
     let matchCounter = 0;
@@ -47,10 +61,14 @@ export default function LeagueFixtures({ config }) {
             </div>
 
             <div className="league-page__actions animate-fade-in">
+                <Button variant="primary" onClick={handleStart}>
+                    🚀 Start Tournament
+                </Button>
+                <div className="action-divider" />
                 <Button variant="secondary" onClick={handleReDraw}>
                     🔄 Re-Draw
                 </Button>
-                <Button variant="ghost" onClick={handleReset}>
+                <Button variant="ghost" onClick={() => navigate('/create')}>
                     🏠 Home
                 </Button>
             </div>
