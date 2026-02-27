@@ -5,45 +5,45 @@
 }
 
 .team-input__number {
-    width: 32px;
-    height: 32px;
-    background: var(--color-surface-alt);
-    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    background: var(--color-surface-muted);
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 0.85rem;
-    color: var(--color-trophy);
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: var(--color-primary);
     flex-shrink: 0;
-    border: 1px solid rgba(212, 160, 23, 0.15);
+    border: 1px solid rgba(99, 102, 241, 0.1);
 }
 
 .team-input__field {
     flex: 1;
-    background: rgba(26, 26, 46, 0.6);
-    border: 1px solid rgba(240, 240, 240, 0.08);
+    background: var(--color-surface);
+    border: 1px solid var(--color-surface-muted);
     border-radius: var(--radius-sm);
     padding: 10px 14px;
     font-family: var(--font-body);
     font-size: 0.95rem;
-    color: var(--color-chalk);
+    color: var(--text-primary);
     outline: none;
     transition: all var(--transition-fast);
+    box-shadow: var(--shadow-sm);
 }
 
 .team-input__field::placeholder {
-    color: var(--color-chalk-dim);
-    opacity: 0.5;
+    color: var(--text-muted);
+    opacity: 0.6;
 }
 
 .team-input__field:focus {
-    border-color: var(--color-pitch);
-    box-shadow: 0 0 0 3px rgba(13, 107, 59, 0.15);
-    background: rgba(26, 26, 46, 0.8);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
 }
 
 .team-input__field:hover:not(:focus) {
-    border-color: rgba(240, 240, 240, 0.15);
+    border-color: var(--text-muted);
 }

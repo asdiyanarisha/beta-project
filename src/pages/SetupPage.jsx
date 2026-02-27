@@ -85,9 +85,9 @@ export default function SetupPage({ onGenerate }) {
     return (
         <div className="setup-page">
             <div className="setup-page__header animate-fade-in-up">
-                <div className="setup-page__logo">⚽</div>
+                <div className="setup-page__logo">📊</div>
                 <h1>Match Drawing</h1>
-                <p className="setup-page__subtitle">Generate competition fixtures instantly</p>
+                <p className="setup-page__subtitle">Clean & modern competition fixture generator</p>
             </div>
 
             <Card className="setup-page__card" variant="highlight">
@@ -99,7 +99,7 @@ export default function SetupPage({ onGenerate }) {
                             className={`mode-option ${mode === 'league' ? 'mode-option--active' : ''}`}
                             onClick={() => setMode('league')}
                         >
-                            <span className="mode-option__icon">🏟️</span>
+                            <span className="mode-option__icon">🔄</span>
                             <span className="mode-option__title">League</span>
                             <span className="mode-option__desc">Round-robin format</span>
                         </button>
@@ -107,7 +107,7 @@ export default function SetupPage({ onGenerate }) {
                             className={`mode-option ${mode === 'cup' ? 'mode-option--active' : ''}`}
                             onClick={() => setMode('cup')}
                         >
-                            <span className="mode-option__icon">🏆</span>
+                            <span className="mode-option__icon">🎯</span>
                             <span className="mode-option__title">Cup</span>
                             <span className="mode-option__desc">Groups + Knockout</span>
                         </button>
@@ -227,8 +227,8 @@ export default function SetupPage({ onGenerate }) {
 
                 {/* Generate Button */}
                 <div className="setup-actions">
-                    <Button variant="trophy" size="lg" onClick={handleGenerate}>
-                        🎲 Generate Draw
+                    <Button variant="primary" size="lg" onClick={handleGenerate}>
+                        🚀 Generate Draw
                     </Button>
                 </div>
             </Card>

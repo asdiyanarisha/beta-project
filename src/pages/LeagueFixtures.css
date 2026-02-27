@@ -1,37 +1,41 @@
 .league-page {
     max-width: 800px;
     margin: 0 auto;
-    padding: 40px 20px 60px;
+    padding: 60px 24px 80px;
 }
 
 .league-page__header {
     text-align: center;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
 }
 
 .league-page__header h1 {
-    font-size: 2rem;
-    margin-bottom: 8px;
+    font-size: 2.25rem;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .league-page__subtitle {
-    color: var(--color-chalk-dim);
-    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-size: 1rem;
 }
 
 .league-page__actions {
     display: flex;
     justify-content: center;
-    gap: 12px;
-    margin-bottom: 28px;
+    gap: 16px;
+    margin-bottom: 32px;
 }
 
 /* Round Tabs */
 .round-tabs {
     display: flex;
-    gap: 6px;
+    gap: 10px;
     overflow-x: auto;
-    padding-bottom: 8px;
+    padding: 4px;
     margin-bottom: 24px;
     scrollbar-width: none;
 }
@@ -42,79 +46,83 @@
 
 .round-tab {
     background: var(--color-surface);
-    border: 1px solid rgba(240, 240, 240, 0.06);
-    border-radius: var(--radius-sm);
-    padding: 8px 16px;
-    color: var(--color-chalk-dim);
+    border: 1px solid var(--color-surface-muted);
+    border-radius: var(--radius-md);
+    padding: 10px 18px;
+    color: var(--text-secondary);
     font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 0.85rem;
+    font-weight: 500;
+    font-size: 0.9rem;
     cursor: pointer;
     transition: all var(--transition-fast);
     white-space: nowrap;
     flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
 }
 
 .round-tab:hover {
-    color: var(--color-chalk);
-    border-color: rgba(13, 107, 59, 0.3);
+    color: var(--text-primary);
+    border-color: var(--color-primary-light);
 }
 
 .round-tab--active {
-    background: var(--color-pitch);
-    border-color: var(--color-pitch);
+    background: var(--color-primary);
+    border-color: var(--color-primary);
     color: white;
+    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2);
 }
 
 /* Fixtures */
 .league-fixtures {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
 }
 
 .round-card {
-    padding: 20px;
+    padding: 24px;
 }
 
 .round-card__title {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 16px;
-    font-size: 1.1rem;
+    gap: 12px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: var(--text-primary);
 }
 
 .round-card__badge {
-    background: linear-gradient(135deg, var(--color-pitch), var(--color-pitch-light));
-    color: white;
+    background: var(--color-surface-muted);
+    color: var(--color-primary);
     width: 32px;
     height: 32px;
-    border-radius: 50%;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.75rem;
-    font-weight: 700;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid rgba(99, 102, 241, 0.1);
 }
 
 .round-card__matches {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
 }
 
 /* Responsive */
 @media (max-width: 480px) {
     .league-page {
-        padding: 24px 12px 40px;
+        padding: 40px 16px 60px;
     }
 
     .league-page__header h1 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
 
     .round-card {
-        padding: 14px;
+        padding: 20px;
     }
 }

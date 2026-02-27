@@ -75,7 +75,7 @@ export default function CupTournament({ config }) {
     return (
         <div className="cup-page">
             <div className="cup-page__header animate-fade-in-up">
-                <h1>🏆 Cup Tournament</h1>
+                <h1>🎯 Cup Tournament</h1>
                 <p className="cup-page__subtitle">
                     {config.teams.length} teams · {config.numGroups} groups · Top {config.qualifiersPerGroup} advance
                 </p>
@@ -83,10 +83,10 @@ export default function CupTournament({ config }) {
 
             <div className="cup-page__actions animate-fade-in">
                 <Button variant="secondary" onClick={handleReDraw}>
-                    🔀 Re-Draw
+                    🔄 Re-Draw
                 </Button>
                 <Button variant="ghost" onClick={handleReset}>
-                    ↩ Reset
+                    🏠 Home
                 </Button>
             </div>
 
@@ -96,14 +96,14 @@ export default function CupTournament({ config }) {
                     className={`phase-tab ${activeTab === 'groups' ? 'phase-tab--active' : ''}`}
                     onClick={() => setActiveTab('groups')}
                 >
-                    <span className="phase-tab__icon">📋</span>
+                    <span className="phase-tab__icon">📂</span>
                     Group Stage
                 </button>
                 <button
                     className={`phase-tab ${activeTab === 'knockout' ? 'phase-tab--active' : ''}`}
                     onClick={() => setActiveTab('knockout')}
                 >
-                    <span className="phase-tab__icon">🏅</span>
+                    <span className="phase-tab__icon">⚔️</span>
                     Knockout
                 </button>
             </div>

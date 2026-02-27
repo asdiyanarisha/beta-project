@@ -39,7 +39,7 @@ export default function LeagueFixtures({ config }) {
     return (
         <div className="league-page">
             <div className="league-page__header animate-fade-in-up">
-                <h1>🏟️ League Fixtures</h1>
+                <h1>🔄 League Fixtures</h1>
                 <p className="league-page__subtitle">
                     {config.teams.length} teams · {fixtures.length} rounds · {totalMatches} matches
                     {config.doubleRound && ' · Double Round-Robin'}
@@ -48,10 +48,10 @@ export default function LeagueFixtures({ config }) {
 
             <div className="league-page__actions animate-fade-in">
                 <Button variant="secondary" onClick={handleReDraw}>
-                    🔀 Re-Draw
+                    🔄 Re-Draw
                 </Button>
                 <Button variant="ghost" onClick={handleReset}>
-                    ↩ Reset
+                    🏠 Home
                 </Button>
             </div>
 
