@@ -1,6 +1,6 @@
 import './MatchCard.css';
 
-export default function MatchCard({ home, away, matchNumber, status, onStatusChange }) {
+export default function MatchCard({ home, away, matchNumber, status, onStatusChange, scoreHome, scoreAway, onClick }) {
     const toggleStatus = () => {
         if (onStatusChange) {
             const nextStatus = status === 'inprogress' ? 'done' : 'inprogress';
@@ -8,8 +8,19 @@ export default function MatchCard({ home, away, matchNumber, status, onStatusCha
         }
     };
 
+    const handleClick = () => {
+        if (onClick) onClick();
+        else if (onStatusChange) toggleStatus();
+    };
+
+    const isDone = status === 'done';
+    const hasScore = isDone && scoreHome !== undefined && scoreAway !== undefined;
+
     return (
-        <div className={`match-card ${status === 'done' ? 'match-card--done' : ''}`}>
+        <div
+            className={`match-card ${isDone ? 'match-card--done' : ''} ${onClick ? 'match-card--clickable' : ''}`}
+            onClick={onClick ? handleClick : undefined}
+        >
             <div className="match-card__main">
                 {matchNumber && (
                     <span className="match-card__number">Match {matchNumber}</span>
@@ -20,7 +31,11 @@ export default function MatchCard({ home, away, matchNumber, status, onStatusCha
                         <span className="match-card__name">{home}</span>
                     </div>
                     <div className="match-card__vs">
-                        <span>VS</span>
+                        {hasScore ? (
+                            <span className="match-card__score">{scoreHome} – {scoreAway}</span>
+                        ) : (
+                            <span>VS</span>
+                        )}
                     </div>
                     <div className="match-card__team match-card__team--away">
                         <span className="match-card__name">{away}</span>
@@ -29,17 +44,21 @@ export default function MatchCard({ home, away, matchNumber, status, onStatusCha
                 </div>
             </div>
 
-            {onStatusChange && (
-                <div className="match-card__status-panel">
+            <div className="match-card__status-panel">
+                {onClick ? (
+                    <span className={`status-badge status-badge--${status}`}>
+                        {isDone ? '✅ Done' : '⏳ In Progress'}
+                    </span>
+                ) : onStatusChange ? (
                     <button
                         className={`status-badge status-badge--${status}`}
-                        onClick={toggleStatus}
+                        onClick={e => { e.stopPropagation(); toggleStatus(); }}
                         title="Click to toggle status"
                     >
-                        {status === 'done' ? '✅ Done' : '⏳ In Progress'}
+                        {isDone ? '✅ Done' : '⏳ In Progress'}
                     </button>
-                </div>
-            )}
+                ) : null}
+            </div>
         </div>
     );
 }

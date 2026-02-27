@@ -1,0 +1,238 @@
+.standings {
+    margin-bottom: 40px;
+}
+
+.standings__header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.standings__title {
+    font-size: 1.15rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.standings__sub {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+.standings__table-wrap {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-surface-muted);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.standings__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+/* Header */
+.standings__table thead tr {
+    background: var(--color-surface-muted);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.06);
+}
+
+.standings__table thead th {
+    padding: 10px 12px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    text-align: center;
+    cursor: default;
+}
+
+.standings__table thead th.col-team,
+.standings__table thead th.col-rank {
+    text-align: left;
+}
+
+/* Rows */
+.standings__table tbody tr {
+    border-bottom: 1px solid var(--color-surface-muted);
+    transition: background var(--transition-fast);
+}
+
+.standings__table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.standings__table tbody tr:hover {
+    background: rgba(99, 102, 241, 0.03);
+}
+
+.standings__table tbody tr.row--top {
+    border-left: 3px solid var(--color-primary);
+}
+
+.standings__table tbody td {
+    padding: 12px 12px;
+    text-align: center;
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Rank */
+.col-rank {
+    width: 40px;
+    text-align: left !important;
+    padding-left: 16px !important;
+}
+
+.rank-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.8rem;
+    background: var(--color-surface-muted);
+    color: var(--text-secondary);
+}
+
+.rank--1 {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+    color: white;
+}
+
+.rank--2 {
+    background: linear-gradient(135deg, #94a3b8, #cbd5e1);
+    color: white;
+}
+
+.rank--3 {
+    background: linear-gradient(135deg, #b45309, #d97706);
+    color: white;
+}
+
+/* Team column */
+.col-team {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left !important;
+    padding-left: 8px !important;
+    min-width: 140px;
+}
+
+.team-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+}
+
+.team-name {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+/* Points */
+.col-pts {
+    font-family: var(--font-heading);
+    font-weight: 800 !important;
+    color: var(--text-primary) !important;
+    font-size: 1rem !important;
+}
+
+/* Goal diff */
+.gd--pos {
+    color: var(--color-success) !important;
+    font-weight: 600;
+}
+
+.gd--neg {
+    color: var(--color-danger) !important;
+    font-weight: 600;
+}
+
+/* Last 5 */
+.col-last5 {
+    min-width: 110px;
+}
+
+.last5 {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+}
+
+.last5__dot {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: white;
+    cursor: default;
+}
+
+.last5__dot--w {
+    background: var(--color-success);
+}
+
+.last5__dot--d {
+    background: #94a3b8;
+}
+
+.last5__dot--l {
+    background: var(--color-danger);
+}
+
+/* Empty */
+.standings__empty {
+    text-align: center;
+    padding: 24px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--color-surface-muted);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .standings__table {
+        font-size: 0.78rem;
+    }
+
+    .standings__table thead th,
+    .standings__table tbody td {
+        padding: 8px 6px;
+    }
+
+    .col-last5 {
+        display: none;
+    }
+
+    .team-avatar {
+        width: 26px;
+        height: 26px;
+    }
+}

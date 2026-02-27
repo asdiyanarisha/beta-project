@@ -4,6 +4,7 @@ import Card from '../components/Card';
 import Button from '../components/Button';
 import MatchCard from '../components/MatchCard';
 import TournamentRow from '../components/TournamentRow';
+import LeagueStandings from '../components/LeagueStandings';
 import './MatchesPage.css';
 
 export default function MatchesPage({ tournaments = [], onUpdate, onReset }) {
@@ -97,6 +98,7 @@ export default function MatchesPage({ tournaments = [], onUpdate, onReset }) {
 
                         {tournament.type === 'league' && (
                             <div className="league-management stagger-children">
+                                <LeagueStandings tournament={tournament} />
                                 {tournament.rounds.map((round, rIdx) => (
                                     <Card key={rIdx} className="management-card" variant="flat">
                                         <h3 className="section-title">Round {round.round}</h3>
@@ -107,7 +109,9 @@ export default function MatchesPage({ tournaments = [], onUpdate, onReset }) {
                                                     home={match.home}
                                                     away={match.away}
                                                     status={match.status}
-                                                    onStatusChange={(status) => handleStatusChange(rIdx, mIdx, status)}
+                                                    scoreHome={match.scoreHome}
+                                                    scoreAway={match.scoreAway}
+                                                    onClick={() => navigate(`/score/${tournament.id}/league/${rIdx}/${mIdx}`)}
                                                 />
                                             ))}
                                         </div>
@@ -132,7 +136,9 @@ export default function MatchesPage({ tournaments = [], onUpdate, onReset }) {
                                                             home={match.home}
                                                             away={match.away}
                                                             status={match.status}
-                                                            onStatusChange={(status) => handleStatusChange(rIdx, mIdx, status, gIdx)}
+                                                            scoreHome={match.scoreHome}
+                                                            scoreAway={match.scoreAway}
+                                                            onClick={() => navigate(`/score/${tournament.id}/cup-group/${gIdx}/${rIdx}/${mIdx}`)}
                                                         />
                                                     ))}
                                                 </div>
@@ -152,7 +158,9 @@ export default function MatchesPage({ tournaments = [], onUpdate, onReset }) {
                                                     home={match.home || 'TBD'}
                                                     away={match.away || 'BYE'}
                                                     status={match.status}
-                                                    onStatusChange={(status) => handleStatusChange(rIdx, mIdx, status)}
+                                                    scoreHome={match.scoreHome}
+                                                    scoreAway={match.scoreAway}
+                                                    onClick={() => navigate(`/score/${tournament.id}/bracket/${rIdx}/${mIdx}`)}
                                                 />
                                             ))}
                                         </div>

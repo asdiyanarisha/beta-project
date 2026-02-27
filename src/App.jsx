@@ -5,6 +5,7 @@ import LeagueFixtures from './pages/LeagueFixtures';
 import CupTournament from './pages/CupTournament';
 import MatchesPage from './pages/MatchesPage';
 import LandingPage from './pages/LandingPage';
+import MatchScorePage from './pages/MatchScorePage';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import './App.css';
 
@@ -44,6 +45,14 @@ export default function App() {
           <Route
             path="/matches"
             element={<MatchesPage tournaments={tournaments} onUpdate={setTournaments} onReset={clearTournaments} />}
+          />
+          <Route
+            path="/score/:tournamentId/:phase/:idx0/:idx1"
+            element={<MatchScorePage tournaments={tournaments} onUpdate={setTournaments} />}
+          />
+          <Route
+            path="/score/:tournamentId/:phase/:idx0/:idx1/:idx2"
+            element={<MatchScorePage tournaments={tournaments} onUpdate={setTournaments} />}
           />
         </Routes>
       </div>

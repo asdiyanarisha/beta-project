@@ -22,6 +22,24 @@
     background: var(--color-surface-muted);
 }
 
+.match-card--clickable {
+    cursor: pointer;
+}
+
+.match-card--clickable:hover {
+    border-color: var(--color-primary-light);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+}
+
+.match-card__score {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
 .match-card__main {
     flex: 1;
 }
