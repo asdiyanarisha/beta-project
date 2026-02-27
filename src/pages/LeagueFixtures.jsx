@@ -51,7 +51,7 @@ export default function LeagueFixtures({ config, onStart }) {
     let matchCounter = 0;
 
     return (
-        <div className="league-page">
+        <div className="league-page" style={{ paddingBottom: '110px' }}>
             <div className="league-page__header animate-fade-in-up">
                 <h1>🔄 League Fixtures</h1>
                 <p className="league-page__subtitle">
@@ -60,18 +60,7 @@ export default function LeagueFixtures({ config, onStart }) {
                 </p>
             </div>
 
-            <div className="league-page__actions animate-fade-in">
-                <Button variant="primary" onClick={handleStart}>
-                    🚀 Start Tournament
-                </Button>
-                <div className="action-divider" />
-                <Button variant="secondary" onClick={handleReDraw}>
-                    🔄 Re-Draw
-                </Button>
-                <Button variant="ghost" onClick={() => navigate('/create')}>
-                    🏠 Home
-                </Button>
-            </div>
+
 
             {/* Round Tabs */}
             <div className="round-tabs animate-fade-in">
@@ -117,6 +106,22 @@ export default function LeagueFixtures({ config, onStart }) {
                         </Card>
                     );
                 })}
+            </div>
+
+            {/* Floating Bottom Drawer */}
+            <div className="bottom-drawer animate-fade-in">
+                <div className="bottom-drawer__inner">
+                    <div className="btn-cancel">
+                        <Button variant="ghost" onClick={() => navigate('/create')} style={{ width: '100%' }}>
+                            ✕ Cancel
+                        </Button>
+                    </div>
+                    <div className="btn-start">
+                        <Button variant="primary" onClick={handleStart} style={{ width: '100%' }}>
+                            🚀 Start Tournament
+                        </Button>
+                    </div>
+                </div>
             </div>
         </div>
     );

@@ -97,7 +97,7 @@ export default function CupTournament({ config, onStart }) {
     };
 
     return (
-        <div className="cup-page">
+        <div className="cup-page" style={{ paddingBottom: '110px' }}>
             <div className="cup-page__header animate-fade-in-up">
                 <h1>🎯 Cup Tournament</h1>
                 <p className="cup-page__subtitle">
@@ -105,18 +105,7 @@ export default function CupTournament({ config, onStart }) {
                 </p>
             </div>
 
-            <div className="cup-page__actions animate-fade-in">
-                <Button variant="primary" onClick={handleStart}>
-                    🚀 Start Tournament
-                </Button>
-                <div className="action-divider" />
-                <Button variant="secondary" onClick={handleReDraw}>
-                    🔄 Re-Draw
-                </Button>
-                <Button variant="ghost" onClick={() => navigate('/create')}>
-                    🏠 Home
-                </Button>
-            </div>
+
 
             {/* Phase Tabs */}
             <div className="phase-tabs animate-fade-in">
@@ -238,6 +227,21 @@ export default function CupTournament({ config, onStart }) {
                     </div>
                 </div>
             )}
+            {/* Floating Bottom Drawer */}
+            <div className="bottom-drawer animate-fade-in">
+                <div className="bottom-drawer__inner">
+                    <div className="btn-cancel">
+                        <Button variant="ghost" onClick={() => navigate('/create')} style={{ width: '100%' }}>
+                            ✕ Cancel
+                        </Button>
+                    </div>
+                    <div className="btn-start">
+                        <Button variant="primary" onClick={handleStart} style={{ width: '100%' }}>
+                            🚀 Start Tournament
+                        </Button>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
