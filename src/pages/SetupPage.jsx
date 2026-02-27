@@ -110,22 +110,17 @@ export default function SetupPage({ onGenerate, activeTournament }) {
                 {/* Sport Type */}
                 <div className="setup-section">
                     <label className="setup-label">Sport Type</label>
-                    <div className="toggle-row">
-                        {[
-                            { id: 'football', label: '⚽ Football' },
-                            { id: 'basketball', label: '🏀 Basketball' },
-                            { id: 'volleyball', label: '🏐 Volleyball' },
-                            { id: 'other', label: '🏟️ Other' }
-                        ].map((s) => (
-                            <button
-                                key={s.id}
-                                className={`toggle-option ${sportType === s.id ? 'toggle-option--active' : ''}`}
-                                onClick={() => setSportType(s.id)}
-                            >
-                                {s.label}
-                            </button>
-                        ))}
-                    </div>
+                    <select
+                        className="setup-input"
+                        value={sportType}
+                        onChange={(e) => setSportType(e.target.value)}
+                        style={{ cursor: 'pointer', appearance: 'auto', padding: '12px 20px', fontSize: '1rem' }}
+                    >
+                        <option value="football">⚽ Football</option>
+                        <option value="basketball">🏀 Basketball</option>
+                        <option value="volleyball">🏐 Volleyball</option>
+                        <option value="other">🏟️ Other</option>
+                    </select>
                 </div>
 
                 {/* Mode Selection */}

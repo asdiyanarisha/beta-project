@@ -58,10 +58,7 @@ export default function MatchesPage({ tournaments = [], onUpdate, onReset }) {
         <div className="matches-page">
             <div className="matches-header animate-fade-in-up">
                 <div className="header-main">
-                    <h1>{selectedTournamentId ? `📋 ${tournament?.name}` : '🏟️ Tournament Dashboard'}</h1>
-                    {selectedTournamentId && (
-                        <span className="type-badge">{tournament?.type === 'league' ? 'League' : 'Cup'}</span>
-                    )}
+                    <div className="landing-nav__logo">📊 MatchDraw</div>
                 </div>
                 <div className="header-actions">
                     <Button variant="primary" onClick={() => navigate('/create')}>
